@@ -2,6 +2,7 @@
 
 from django.db import models
  
+from django.contrib import admin
  
 class Gender(models.Model):
     name = models.CharField(max_length=32)
@@ -24,3 +25,14 @@ class UserType(models.Model):
  
     def __str__(self):
         return self.name
+
+class BlogsPost(models.Model):
+    title = models.CharField(max_length = 150)
+    body = models.TextField()
+    timestamp = models.DateTimeField()
+
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('title','timestamp')
+    
+admin.site.register(BlogsPost,BlogPostAdmin)
+
