@@ -11,6 +11,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+from . import admin_settings
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -32,13 +33,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'suit',
+#    'bootstrap3',
+ #   'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Douban',
+    'Users',
+    'Read',
 )
 
 MIDDLEWARE_CLASSES = (

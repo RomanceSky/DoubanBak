@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
-from .views import *
+#from django.db import models
+#from .models import *
+from Read.views import *
+from Douban.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^user/create/$', userCreateView, name = 'user-create'),
+    url(r'^read/create/$', readCreateView, name= 'read-create'),
 ]
