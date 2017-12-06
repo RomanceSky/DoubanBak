@@ -38,7 +38,7 @@
 
             {% if model.add_url %}
               <!--  <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>-->
-              <td><a href="{%url 'read-create' %}" class="addlink">{% trans 'Add' %}</a></td>
+              <td><a href="{%url 'read-create' read.id  %}" class="addlink">{% trans 'Add' %}</a></td>
               <a href="{%url 'read-create' %}" class="addlink">嘻嘻</a>
             {% else %}
                 <td>&nbsp;</td>

@@ -20,7 +20,7 @@ from django.contrib import admin
 from Read.views import *
 from Douban.views import *
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls), name='index'),
     url(r'^user/create/$', userCreateView, name = 'user-create'),
-    url(r'^read/create/$', readCreateView, name= 'read-create'),
+    url(r'^read/create/(?P<id>\d+)/$', readCreateView, name= 'read-create'),
 ]

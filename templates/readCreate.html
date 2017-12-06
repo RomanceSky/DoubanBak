@@ -1,5 +1,4 @@
 
-
 {% load staticfiles %}
 <!DOCTYPE html>
 <!--
@@ -24,7 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{% static 'AdminLTE-2.4.2/dist/css/skins/skin-blue.min.css' %}">
-
+<link rel="stylesheet" href="{% static 'bootstrap-table/src/bootstrap-table.css' %}">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -262,17 +261,41 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>首页</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>其他</span></a></li>
+		<li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>读书</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li><a href="#">查看图书</a></li>
+            <li><a href="#">图书销量</a></li>
+			<li><a href="#">修改图书</a></li>
+			<li><a href="#">图书库存</a></li>
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>小组</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">小组</a></li>
+            <li><a href="#">小组</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>电影</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">电影分类信息</a></li>
+            <li><a href="#">修改电影信息</a></li>
           </ul>
         </li>
       </ul>
@@ -286,8 +309,8 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        仿豆瓣网后台管理
+        <small>豆瓣</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -301,7 +324,32 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-
+		<!-- 中间内容 -->
+    <div class="content-wrapper">
+    <p>啦啦啦啦绿绿</p>
+<table data-toggle="table">
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Item Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Item 1</td>
+            <td>$1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Item 2</td>
+            <td>$2</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+{{read}}
     </section>
     <!-- /.content -->
   </div>
@@ -394,6 +442,8 @@ desired effect
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -408,5 +458,8 @@ desired effect
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+<script src="{% static 'bootstrap-table/src/bootstrap-table.js' %}"></script>
+<-- put your locale files after bootstrap-table.js -->
+<script src="{% static 'bootstrap-table/src/bootstrap-table-zh-CN.js' %}"></script>
 </body>
-</html>`
+</html>
