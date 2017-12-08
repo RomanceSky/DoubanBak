@@ -1,0 +1,11 @@
+
+{
+  "order": [
+    {"stateNum": "-1", "stateResult": "已创建"},
+    {"stateNum": "0", "stateResult": "成功"}
+  ],
+  "country": [
+    {"name":"阿富汗","shorthand":"AF"},
+    {"name":"阿尔巴尼亚","shorthand":"AL"}
+  ]
+}    

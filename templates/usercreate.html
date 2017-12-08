@@ -93,16 +93,15 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{% static 'img/MusicRight1.jpg' %}" class="user-image" alt="User Image">  <span class="hidden-xs">注册</span>  <span class="hidden-xs">登录</span>
+              <img src="" class="user-image" alt="User Image">  <span class="hidden-xs">注册</span>  <span class="hidden-xs">登录</span>
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Admin</span>
             </a> 
 
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
-		 <li class="user-header">
-              <img src="{% static 'img/MusicRight1.jpg' %}" class="img-circle" alt="User Image">
-			 
+              <li class="user-header">
+                <img src="" class="img-circle" alt="User Image">
          {% for model in app.models %}
             <p class="model-{{ model.object_name|lower }}"></p>
 			{% if model.admin_url %}
@@ -155,7 +154,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-    <img src="{% static 'img/MusicRight1.jpg' %}" class="img-circle" alt="User Image">
+          <img src="" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>   {% for model in app.models %}
@@ -168,7 +167,7 @@ desired effect
   </p>
         {% endfor %}     </p>
           <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i></a>
+          <a href="#"><i class="fa fa-circle text-success"></i>——</a>
         </div>
       </div>
 
@@ -332,54 +331,113 @@ desired effect
         | Your Page Content Here |
         -------------------------->
 		<!-- 中间内容 -->
-		<h1>Welcome</h1>
-  
-	
-    <div class="panel panel-primary">
-        <a href=""><div class="panel-heading">豆瓣时间</div>
-        <div class="panel-body">知识的传授与汲取、发掘与延续… 每个阶段都离不开时间的积累与检验。在这段交付给彼此的时间里，我们愿陪伴你共同成长。</div>
-        <div class="panel-footer">时间: 2017-12-8</div> </a> 
-    </div> 
-    <div class="panel panel-success">
-       <a href=""> <div class="panel-heading">豆瓣视频</div>
-        <div class="panel-body">探访多位对于生命有领悟的行者、智者、禅者，找寻当下时代迷失的信仰，找到观照自我内心的修行方式。</div>
-        <div class="panel-footer">时间: 2017-12-8</div> </a> 
-    </div> 
-    <div class="panel panel-info">
-       <a href=""> <div class="panel-heading">豆瓣电影</div>
-        <div class="panel-body">影讯&购票 选电影 电视剧 排行榜 分类 影评 2016年度榜单 2016观影报告</div>
-        <div class="panel-footer">时间: 2017-12-8</div>  </a> 
-    </div>
-    <div class="panel panel-danger">
-      <a href="">  <div class="panel-heading">豆瓣小组</div>
-        <div class="panel-body">分享点滴、交友</div>
-        <div class="panel-footer">时间: 2017-12-8</div>  </a> 
-    </div>
-	  <div class="panel panel-default">
-	<a href="">
-        <div class="panel-heading">豆瓣读书</div>
-        <div class="panel-body">记录你读过的、想读和正在读的书,顺便打分,添加标签及个人附注,写评论。根据你的口味,推荐适合的书给你。</div>
-        <div class="panel-footer">时间: 2017-12-8</div>
-   </a> 
-   </div>
-    <div class="panel panel-warning">
-       <a href=""> <div class="panel-heading">豆瓣音乐</div>
-        <div class="panel-body">余音绕梁</div>
-        <div class="panel-footer">时间: 2017-12-8</div>
-    </div>
-	
-	 <div class="panel panel-warning">
-       <a href=""> <div class="panel-heading">豆瓣市集</div>
-        <div class="panel-body">有你想要的</div>
-        <div class="panel-footer">时间: 2017-12-8</div>  </a> 
-    </div>
-	<div class="panel panel-warning">
-       <a href=""> <div class="panel-heading">豆瓣同城</div>
-        <div class="panel-body">发现更多精彩内容</div>
-        <div class="panel-footer">时间: 2017-12-8</div>  </a> 
-    </div>
-	
+<section class="content">
+	<div class="row">
+	<div class="col-xs-12">
+		<!-- Horizontal Form -->
+		<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">新的组装清单</h3>
+		</div>
+		<!-- /.box-header -->
+		<!-- form start -->
+		<form class="form-horizontal" method="post">
+		{% csrf_token %}
+			<input type="text" name="commodityClassifList" id="commodityClassifList" class="form-control" value="" >
+			<div class="box-body">
+				<div class="row">
+					<div class="form-group">
+					<label class="col-xs-2 control-label">清单名称</label>
+					<div class="col-xs-5">
+						<input type="text" class="form-control" name="name" value="" placeholder="输入清单名称">
+					</div>
+					</div>
+				</div>
 
+				<div class="row">
+					<div class="form-group">
+					<label class="col-xs-2 control-label">描述</label>
+					<div class="col-xs-5">
+						<input type="text" class="form-control" name="describe" value="" placeholder="关于清单的说明">
+					</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+					<label class="col-xs-2 control-label">选择商品</label>
+					<div class="col-xs-5">
+						<select class="select2 form-control" id="commodityClassif">
+						{%for item in commodityClassifObjectList%}
+						<option value="{{item.id}}">[名称:]{{item.name}} / [规格:]{{item.describe}}</option>
+						{%endfor%}
+						</select>
+					</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+					<label class="col-xs-2 control-label">数量</label>
+					<div class="col-xs-3">
+						<input type="text" class="form-control" id="quantity" placeholder="输入数字">
+					</div>
+					<button type="button" class="btn btn-flat btn-primary" id="addCommodity" >增加商品</button>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12">
+					<table id="table"></table>
+					</div>
+				</div>
+
+			</div>
+			<!-- /.box-body -->
+			<div class="box-footer">
+			<!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+			<button type="submit" class="btn  btn-flat btn-primary pull-right">保存</button>
+			</div>
+			<!-- /.box-footer -->
+		</form>
+		</div>
+		<!-- /.box -->
+	</div>
+	<!--/.col (right) -->
+	</div>
+	<!-- /.row -->
+
+</section>
+<table data-toggle="table">
+    <thead>
+	<button class="text-success">新增用户</button>
+        <tr>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>用户邮箱</th>
+        </tr>
+    </thead>
+    <tbody>
+	{{item.id}}
+	{%for item in UsersList%}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.Usersname}}</td>
+            <td>{{item.Usersemail}}</td>
+        </tr>
+        <tr>
+             <td>{{item.id}}</td>
+            <td>{{item.Usersname}}</td>
+            <td>{{item.Usersemail}}</td>
+        </tr>
+		 <tr>
+             <td>{{item.id}}</td>
+            <td>{{item.Usersname}}</td>
+            <td>{{item.Usersemail}}</td>
+        </tr>
+		{% endfor %}
+    </tbody>
+</table>
 </div>
 
     </section>
@@ -494,6 +552,114 @@ desired effect
 <-- put your locale files after bootstrap-table.js -->
 <script src="{% static 'bootstrap-table/src/bootstrap-table-zh-CN.js' %}"></script>
 <script src="{% static 'bootstrap-table/src/bootstrap-table.js' %}"></script>
+<script>
+var $table = $('#table');
+var $button = $('#addCommodity');
+// $.fn.editable.defaults.mode = 'inline';
+var tableID = 0;
 
+$(document).ready(function() {
+	$(".select2").select2();
+
+	$button.click(function () {
+		addRow();
+	});
+
+	$table.bootstrapTable({
+		columns: [{
+			field: 'rowID',
+			title: '序号',
+		}, {
+			field: 'name',
+			title: '名称'
+		}, {
+			field: 'specifications',
+			title: '规格'
+		},{
+			field: 'quantity',
+			title: '数量/单位',
+		}, {
+			field: 'action',
+			title: '操作'
+		}],
+		striped: true,
+		uniqueId: "rowID",
+	});
+	// $table.bootstrapTable({height:200});
+	$table.bootstrapTable('hideLoading');
+});
+
+var commodityClassif=[];
+{%for item in commodityClassifObjectList%}
+commodityClassif[{{item.id}}] = {
+	name: "{{item.name}}",
+	unit: "{{item.unit}}",
+	describe: "{{item.describe}}",
+}
+{%endfor%}
+
+// 保存数据
+function saveListValue()
+{
+	var json = JSON.parse( JSON.stringify($table.bootstrapTable('getData')));
+
+	for (i = 0 ; i < json.length; i++ ) {
+		json[i].quantity = json[i].quantity.split('/')[0]
+		delete json[i].action;
+		delete json[i].rowID;
+		delete json[i].specifications;
+	}
+	$("#commodityClassifList").attr('value', JSON.stringify(json));
+}
+
+
+function addRow()
+{
+	var re = /^[0-9]+.?[0-9]*$/;
+	if (!re.test($("#quantity").val())) {
+		alert("请输入数字!");
+		return false;
+	}
+	var item = commodityClassif[$("#commodityClassif").val()];
+	// $table.bootstrapTable('remove', {field: 'name', values: item.name});
+
+	var data = $table.bootstrapTable('getData');
+	for(var i = 0; i < data.length; i++) {
+		if (data[i].name == item.name && data[i].specifications == item.describe) {
+			alert("商品已经存在");
+			return false;
+		}
+	}
+
+	tableID = tableID + 1
+
+	actionDiv = '<div><a class="btn btn-flat btn-primary" href="javascript:removeRow(\''+tableID.toString()+'\');"><i class="glyphicon glyphicon-remove">删除</i></a></div>';
+	row = {
+		rowID: tableID.toString(),
+		id: $("#commodityClassif").val(),
+		name: item.name,
+		specifications: item.describe,
+		quantity: parseInt($("#quantity").val())+"/"+item.unit,
+		action: actionDiv
+	}
+	$table.bootstrapTable('append', row);
+	saveListValue();
+}
+
+function removeRow(rowID)
+{
+	// $table.bootstrapTable('remove', {field: 'rowID', values: rowID});
+	$table.bootstrapTable('removeByUniqueId', rowID);
+	var json = $table.bootstrapTable('getData');
+	tableID = 0;
+	for (i = 0 ; i < json.length; i++ ) {
+		tableID = tableID + 1;
+		json[i].rowID = tableID.toString();
+		actionDiv = '<div><a class="btn btn-flat btn-primary" href="javascript:removeRow(\''+tableID.toString()+'\');"><i class="glyphicon glyphicon-remove">删除</i></a></div>';
+	}
+	$table.bootstrapTable("load", json);
+	saveListValue();
+}
+</script>
 </body>
 </html>

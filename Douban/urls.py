@@ -19,8 +19,12 @@ from django.contrib import admin
 #from .models import *
 from Read.views import *
 from Douban.views import *
+from Users.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls), name='index'),
     url(r'^user/create/$', userCreateView, name = 'user-create'),
     url(r'^read/create/(?P<id>\d+)/$', readCreateView, name= 'read-create'),
-]
+#    url(r'^Users/Create/(?P<id>\d+)/$', UsersCreateView, name='Users-Create'),
+    url(r'^Users/Create/$', UsersCreateView, name='Users-Create'),
+   
+]  
